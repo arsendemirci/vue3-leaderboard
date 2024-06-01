@@ -1,84 +1,61 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import data from './data/events.json'
+import { computed } from 'vue'
+import { compare, getDatesArrRecursive, getDatesArr } from '@arrayUtils'
+import { IconNumber, IconMoney, IconTime } from '@icons'
+import './App.scss'
+const datesData = computed(() => {
+  //const dates = getDatesArr(data)
+  const dates = getDatesArrRecursive(data).sort(compare)
 
-console.log('events data', data)
-// const reduce1 = Object.entries(data).reduce((acc, curr) => {
-//   const [key, value] = curr
-
-let events = [] // all event dates array
-
-Object.entries(data).forEach(([key1, value1]) => {
-  const year = key1
-  let month, date
-  Object.entries(value1).forEach(([key2, value2]) => {
-    month = key2
-    Object.entries(value2).forEach(([key3, value3]) => {
-      date = key3
-      if (!['c', 'dur', 's'].includes(key3)) {
-        let dateStr = new Date(year, month - 1, date).toLocaleDateString('tr-TR')
-        let c = value3['c']
-        let dur = value3['dur']
-        let s = value3['s']
-        events.push({ date: dateStr, c, dur, s })
-      }
-    })
-  })
+  return { top3: dates.slice(0, 3), ranking: dates.slice(3) }
 })
-
-console.log('topevent', events)
-events.sort((a, b) => {
-  if (a.c > b.c) {
-    return -1
-  } else if (a.c === b.c) {
-    return a.dur > b.dur ? -1 : 1
-  } else {
-    return 1
+const formatDate = (dateStr) => {
+  let date = new Date(dateStr)
+  return {
+    month: date.toLocaleString('default', { month: 'short' }),
+    day: date.toLocaleString('default', { day: '2-digit' }),
+    weekday: date.toLocaleString('default', { weekday: 'long' }),
+    year: date.toLocaleString('default', { year: 'numeric' })
   }
-})
-console.log('sorted', events)
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="container">
+    <ul>
+      <li v-for="(e, i) in datesData.top3" :key="e.date">
+        <div class="card">
+          <!-- <div class="ribbon" :class="[`r${i + 1}`]">
+            {{ `${i + 1}${i == 0 ? 'st' : i == 1 ? 'nd' : 'rd'}` }}
+          </div> -->
+          <div class="ribbon">
+            <div :class="[`r${i + 1}`]">{{ i + 1 }}</div>
+          </div>
+          <div class="event">
+            <div><IconNumber /> {{ e.c }}</div>
+            <div><IconTime />{{ e.dur }}</div>
+            <div><IconMoney />{{ e.s }}</div>
+          </div>
+          <div class="spacer"></div>
+          <div class="date">
+            <div class="date-header">{{ formatDate(e.date).month }}</div>
+            <div class="date-body">
+              {{ formatDate(e.date).day }}
+            </div>
+            <div class="date-footer">{{ formatDate(e.date).year }}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <hr />
+    <ul>
+      <li v-for="e in datesData.ranking" :key="e.date">
+        <div>
+          <strong>{{ e.date }}</strong>
+        </div>
+        <div>{{ `${e.c} - ${e.dur} - ${e.s}` }}</div>
+      </li>
+    </ul>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
