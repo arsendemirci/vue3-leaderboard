@@ -19,11 +19,11 @@
       display: flex;
       align-items: center;
       padding: 8px 15px;
+      min-width: 110px;
+      max-width: 110px;
       &:first-child {
         flex: 1;
-        + div {
-          min-width: 60px;
-        }
+        max-width: none;
       }
     }
   }
@@ -32,8 +32,6 @@
     height: fit-content;
     margin-bottom: -10px;
     box-shadow: 2px -2px 10px rgba(128, 128, 128, 0.492);
-    // border-top-right-radius: 10px;
-    // border-top-left-radius: 10px;
     align-self: self-end;
     background: $bg-linear-blue;
     color: white;
