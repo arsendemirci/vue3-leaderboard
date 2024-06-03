@@ -10,8 +10,9 @@ Task is to traverse the dates data and create a design to show top 3 dates with 
 
 You can check the [Vue3 Leaderboard Demo Page](https://vue3-leaderboard.netlify.app/)  to see the leaderboard in action. 
 
-## :gun: Getting Started
+<h2>:gun: Getting Started</h2>
 Clone the project and run the npm commands below to get started.
+
 ### :hammer: Installation
 
 ```sh
