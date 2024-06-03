@@ -1,0 +1,26 @@
+//flexbox function for setting flex attributes
+@mixin flex-display($display, $direction: row, $align-items: normal, $justify-content: flex-start) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+//position an element center with absolute
+@mixin absolute-center($axis: null) {
+  position: absolute;
+  @if $axis {
+    @if $axis == x {
+      transform: translateX(-50%);
+      left: 50%;
+    } @else if $axis == y {
+      transform: translateY(-50%);
+      top: 50%;
+    } @else {
+      @error "Unknown axis #{$axis}.";
+    }
+  } @else {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+  }
+}

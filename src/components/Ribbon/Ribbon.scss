@@ -1,0 +1,50 @@
+.ribbon {
+  padding: 0 0 $ribbon-tail 0;
+  position: absolute;
+  left: 1em;
+  top: -0.24em;
+  width: $ribbon-w;
+
+  div {
+    box-shadow: 2px 4px 19px #bebebe;
+    color: #fff;
+    padding: 0.5em 0;
+    text-align: center;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.866);
+    font-weight: bolder;
+    font-size: 20px;
+    &.r1 {
+      background: #9f852d;
+      background: linear-gradient(#ecd923 0%, #9f852d 100%);
+      &:after {
+        border-left: calc($ribbon-w / 2) solid #9f852d;
+        border-right: calc($ribbon-w / 2) solid #9f852d;
+      }
+    }
+    &.r2 {
+      background: #7a7a7a;
+      background: linear-gradient(#c0c0c0 0%, #7a7a7a 100%);
+      &:after {
+        border-left: calc($ribbon-w / 2) solid #7a7a7a;
+        border-right: calc($ribbon-w / 2) solid #7a7a7a;
+      }
+    }
+    &.r3 {
+      background: #955e28;
+      background: linear-gradient(#cd7f32 0%, #955e28 100%);
+      &:after {
+        border-left: calc($ribbon-w / 2) solid #955e28;
+        border-right: calc($ribbon-w / 2) solid #955e28;
+      }
+    }
+    &:after {
+      border-bottom: $ribbon-tail solid transparent;
+      bottom: 0;
+      content: '';
+      height: 0;
+      left: 0;
+      position: absolute;
+      width: 0;
+    }
+  }
+}

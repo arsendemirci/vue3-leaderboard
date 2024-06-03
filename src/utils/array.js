@@ -71,7 +71,11 @@ export const getDatesArrRecursive = (obj, key, dates = [], level = 0, datesArr =
 
     if (dates.length === 3) {
       datesArr.push({
-        date: new Date(dates[0], dates[1] - 1, dates[2]).toLocaleString(),
+        date: new Date(dates[0], dates[1] - 1, dates[2]).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        }),
         c: obj.c,
         dur: obj.dur,
         s: obj.s

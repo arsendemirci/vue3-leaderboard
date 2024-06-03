@@ -1,0 +1,30 @@
+.date {
+  @include flex-display(flex, column);
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(180, 180, 180, 0.547);
+  overflow: hidden;
+
+  &-header {
+    background: $bg-linear-blue;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 600;
+  }
+  .date-body {
+    background-color: white;
+    @include flex-display(flex, column, center, center);
+
+    height: 100%;
+    font-size: 22px;
+    font-weight: bolder;
+  }
+  .date-footer {
+    color: $bg-linear-blue;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+  }
+}

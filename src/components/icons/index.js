@@ -1,3 +1,7 @@
 export { default as IconMoney } from './IconMoney.vue'
 export { default as IconNumber } from './IconNumber.vue'
 export { default as IconTime } from './IconTime.vue'
+export { default as IconCalendar } from './IconCalendar.vue'
+export { default as IconGithub } from './IconGithub.vue'
+export { default as IconLinkedin } from './IconLinkedin.vue'
+export { default as IconCodepen } from './IconCodepen.vue'

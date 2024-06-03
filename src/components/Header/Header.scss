@@ -1,0 +1,58 @@
+header {
+  position: fixed;
+  width: 100%;
+  padding-top: 10px;
+  padding-left: 150px;
+  color: #353535;
+  z-index: 9;
+  top: 0;
+  color: white;
+  svg {
+    transition: all 0.2s ease-in-out;
+  }
+  a:hover {
+    svg {
+      transform: scale(1.2);
+    }
+  }
+  h1 {
+    @include flex-display(flex, row, center, flex-start);
+    a {
+      margin-left: 15px;
+    }
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+  .links {
+    margin-top: 10px;
+    a {
+      margin-right: 15px;
+      svg {
+        width: 36px;
+        height: 36px;
+      }
+      &:hover {
+        svg {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 16em;
+    z-index: -1;
+    transform: skewY(-3deg);
+    background: $bg-linear-blue;
+    border-bottom: 0.2em solid rgb(0 0 0 / 67%);
+    box-shadow: 0 5px 15px #80808087;
+  }
+}

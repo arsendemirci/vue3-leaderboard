@@ -10,7 +10,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@arrayUtils': fileURLToPath(new URL('./src/utils/array.js', import.meta.url)),
-      '@icons': fileURLToPath(new URL('./src/components/icons/index.js', import.meta.url))
+      '@icons': fileURLToPath(new URL('./src/components/icons/index.js', import.meta.url)),
+      '@components': fileURLToPath(new URL('./src/components/index.js', import.meta.url))
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use 'sass:map';@import "./src/style/global.scss";`
+      }
     }
   }
 })
