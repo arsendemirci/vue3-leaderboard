@@ -2,11 +2,23 @@ header {
   position: fixed;
   width: 100%;
   padding-top: 10px;
-  padding-left: 150px;
+
   color: #353535;
   z-index: 9;
   top: 0;
   color: white;
+  height: 100px;
+  .header-wrap {
+    max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    > div,
+    > h1 {
+      margin: 0;
+    }
+  }
   svg {
     transition: all 0.2s ease-in-out;
   }
@@ -16,7 +28,7 @@ header {
     }
   }
   h1 {
-    @include flex-display(flex, row, center, flex-start);
+    @include flex-display(flex, row, flex-start, flex-start);
     a {
       margin-left: 15px;
     }
