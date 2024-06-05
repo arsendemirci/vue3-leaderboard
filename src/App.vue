@@ -19,8 +19,8 @@ const getDelay = (i) => {
   } else if (i < 13) {
     return `${0.65 + i * 0.12}s`
   } else {
-    /* list is big and loading fast after visible area finished animating, 
-    this speeding up the animation of remaining elements*/
+    /* list is big and loading fast so, 
+    this speeding up the animation of remaining elements after visible area finished animating*/
     return `${0.65 + 1.56 + i * 0.018}s`
   }
 }
