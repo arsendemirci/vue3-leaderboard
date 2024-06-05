@@ -17,11 +17,11 @@ const getDelay = (i) => {
   if (i === 0) {
     return `${0.65}s`
   } else if (i < 13) {
-    return `${0.65 + i * 0.12}s`
+    return `${0.65 + i * 0.11}s`
   } else {
     /* list is big and loading fast so, 
     this speeding up the animation of remaining elements after visible area finished animating*/
-    return `${0.65 + 1.56 + i * 0.018}s`
+    return `${0.8 + i * 0.015}s`
   }
 }
 </script>

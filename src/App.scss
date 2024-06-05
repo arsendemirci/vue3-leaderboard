@@ -49,7 +49,7 @@ $rank-delays: (
 
     &-scroll {
       overflow: auto;
-      height: 500px;
+      height: calc(100vh - 500px);
       ul {
         margin-right: 10px;
         li {
