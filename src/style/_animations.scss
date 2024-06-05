@@ -1,0 +1,30 @@
+@keyframes appear {
+  0% {
+    opacity: 0;
+    // transform: translate(0, -50px) scale(0.8);
+    transform: perspective(200px) rotateX(80deg) scale(0.8);
+  }
+  75% {
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 1;
+    // transform: translate(0, 0) scale(1);
+    transform: perspective(200px) rotateX(0) scale(1);
+  }
+}
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes delay-overflow {
+  to {
+    overflow: auto;
+  }
+}

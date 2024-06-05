@@ -1,10 +1,12 @@
 <script setup>
 import data from './data/events.json'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { compare, getDatesArrRecursive, getDatesArr } from '@arrayUtils'
 
 import { DateCard, Ribbon, DataBar, Header } from '@components'
 import './App.scss'
+const overflow = ref(false)
+
 const datesData = computed(() => {
   //const dates = getDatesArr(data).sort(compare)
 
@@ -13,6 +15,9 @@ const datesData = computed(() => {
 
   return { top3: dates.slice(0, 3), ranking: dates.slice(3) }
 })
+setTimeout(() => {
+  overflow.value = true
+}, 2500)
 const getDelay = (i) => {
   if (i === 0) {
     return `${0.65}s`
@@ -48,7 +53,7 @@ const getDelay = (i) => {
       <div class="container-rankings">
         <h2>Rankings</h2>
         <hr />
-        <div class="container-scroll">
+        <div class="container-scroll" :class="[overflow ? 'overflow' : '']">
           <ul>
             <li
               v-for="(e, i) in datesData.ranking"
