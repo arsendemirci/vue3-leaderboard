@@ -16,7 +16,7 @@ const datesData = computed(() => {
 const getDelay = (i) => {
   if (i === 0) {
     return `${0.65}s`
-  } else if (i < 13) {
+  } else if (i < 20) {
     return `${0.65 + i * 0.11}s`
   } else {
     /* list is big and loading fast so, 
