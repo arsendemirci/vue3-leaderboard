@@ -22,11 +22,12 @@
           opacity: 0;
           animation: appear 0.9s ease-in-out forwards;
 
-          @each $rank in 1, 2, 3 {
+          @each $rank, $content in $rank-content {
             &.rank#{$rank} {
-              order: map.get($rank-orders, $rank);
-              margin-top: map.get($rank-margins, $rank);
-              animation-delay: map.get($rank-delays, $rank);
+              order: map.get($content, order);
+              z-index: map.get($content, z-index);
+              margin-top: map.get($content, margin-top);
+              animation-delay: map.get($content, delay);
             }
           }
         }

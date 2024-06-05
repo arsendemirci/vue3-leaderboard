@@ -1,0 +1,21 @@
+//map values to flex order top 3 items
+$rank-content: (
+  1: (
+    order: 2,
+    z-index: 1,
+    margin-top: -70px,
+    delay: 0.01s
+  ),
+  2: (
+    order: 1,
+    z-index: 2,
+    margin-top: -40px,
+    delay: 0.6s
+  ),
+  3: (
+    order: 3,
+    z-index: 3,
+    margin-top: -15px,
+    delay: 1s
+  )
+);

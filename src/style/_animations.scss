@@ -1,18 +1,20 @@
+// top 3 items animations
 @keyframes appear {
   0% {
     opacity: 0;
     // transform: translate(0, -50px) scale(0.8);
-    transform: perspective(200px) rotateX(80deg) scale(0.8);
+    transform: perspective(150px) rotateX(180deg) scale(0.8);
   }
   75% {
-    transform: scale(1.4);
+    transform: scale(1.6);
   }
   100% {
     opacity: 1;
     // transform: translate(0, 0) scale(1);
-    transform: perspective(200px) rotateX(0) scale(1);
+    transform: perspective(150px) rotateX(0) scale(1);
   }
 }
+//list item animations
 @keyframes appear-left {
   from {
     opacity: 0;
@@ -23,6 +25,7 @@
     transform: translateX(0);
   }
 }
+//to delay scroll bar appearence until list animation is finished
 @keyframes delay-overflow {
   to {
     overflow: auto;
