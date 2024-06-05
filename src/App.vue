@@ -13,6 +13,13 @@ const datesData = computed(() => {
 
   return { top3: dates.slice(0, 3), ranking: dates.slice(3) }
 })
+const getDelay = (i) => {
+  if (i === 0) {
+    return `${0.65}s`
+  } else {
+    return `${0.65 + i * 0.12}s`
+  }
+}
 </script>
 
 <template>
@@ -39,7 +46,11 @@ const datesData = computed(() => {
         <hr />
         <div class="container-scroll">
           <ul>
-            <li v-for="(e, i) in datesData.ranking" :key="e.date">
+            <li
+              v-for="(e, i) in datesData.ranking"
+              :key="e.date"
+              :style="{ 'animation-delay': getDelay(i) }"
+            >
               <div class="card card-rank">
                 <div class="card-no">{{ i + 4 }}</div>
                 <DataBar :eventsData="e" />

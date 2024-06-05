@@ -8,6 +8,11 @@ $rank-margins: (
   2: -40px,
   3: -15px
 );
+$rank-delays: (
+  1: 0,
+  2: 0.3s,
+  3: 0.5s
+);
 .wrapper {
   .container {
     h2 {
@@ -29,10 +34,13 @@ $rank-margins: (
         display: flex;
         justify-content: space-between;
         li {
+          opacity: 0;
+          animation: appear 0.4s ease-in-out forwards;
           @each $rank in 1, 2, 3 {
             &.rank#{$rank} {
               order: map.get($rank-orders, $rank);
               margin-top: map.get($rank-margins, $rank);
+              animation-delay: map.get($rank-delays, $rank);
             }
           }
         }
@@ -44,6 +52,10 @@ $rank-margins: (
       height: 500px;
       ul {
         margin-right: 10px;
+        li {
+          opacity: 0;
+          animation: appear-left 0.35s ease-out forwards;
+        }
       }
 
       &::-webkit-scrollbar {
@@ -103,5 +115,25 @@ $rank-margins: (
       list-style-type: none;
       padding-left: 0;
     }
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translate(0, -50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes appear-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
