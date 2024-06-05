@@ -1,70 +1,53 @@
 header {
   position: fixed;
-  width: 100%;
-  padding-top: 10px;
-
-  color: #353535;
-  z-index: 9;
   top: 0;
+  border: 0.2em solid rgb(0 0 0 / 67%);
+  border-top: none;
+  background: $bg-linear-blue;
+  box-shadow: 0 5px 15px #80808087;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
-  height: 100px;
-  .header-wrap {
-    max-width: 960px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 auto;
-    > div,
-    > h1 {
-      margin: 0;
-    }
-  }
+  border-bottom-left-radius: 15% 100px;
+  border-bottom-right-radius: 15% 100px;
+  width: 100%;
+  max-width: 1200px;
+
   svg {
-    transition: all 0.2s ease-in-out;
-  }
-  a:hover {
-    svg {
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
+    &:hover {
       transform: scale(1.2);
     }
   }
-  h1 {
-    @include flex-display(flex, row, flex-start, flex-start);
-    a {
-      margin-left: 15px;
-    }
+  .header-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 60px 15px 60px;
+    width: 100%;
+    gap: 30px;
     svg {
       width: 28px;
       height: 28px;
     }
   }
-  .links {
-    margin-top: 10px;
-    a {
-      margin-right: 15px;
-      svg {
-        width: 36px;
-        height: 36px;
-      }
-      &:hover {
-        svg {
-          transform: scale(1.2);
-        }
-      }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    svg {
+      width: 36px;
+      height: 36px;
     }
   }
-
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 16em;
-    z-index: -1;
-    transform: skewY(-3deg);
-    background: $bg-linear-blue;
-    border-bottom: 0.2em solid rgb(0 0 0 / 67%);
-    box-shadow: 0 5px 15px #80808087;
+  @media screen and (max-width: 1024px) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left: none;
+    border-right: none;
+    .header-wrap {
+      padding: 10px 30px;
+    }
   }
 }

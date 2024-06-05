@@ -5,6 +5,10 @@ import './Header.scss'
 <template>
   <header>
     <div class="header-wrap">
+      <h1>
+        Vue 3 Leaderboard
+        <a href="https://github.com/arsendemirci/vue-case" target="_blank"><IconGithub /></a>
+      </h1>
       <div class="profile">
         <h3>Designed By <b>Arsen Demirci</b></h3>
         <div class="links">
@@ -15,10 +19,6 @@ import './Header.scss'
           /></a>
         </div>
       </div>
-      <h1>
-        Vue 3 Leaderboard
-        <a href="https://github.com/arsendemirci/vue-case" target="_blank"><IconGithub /></a>
-      </h1>
     </div>
   </header>
 </template>
