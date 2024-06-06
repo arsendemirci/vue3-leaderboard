@@ -1,14 +1,14 @@
 // top 3 items animations
 
-@each $key,$value in $rank-content{
+@each $key, $value in $rank-content {
   @keyframes appear#{$key} {
     0% {
       opacity: 0;
       // transform: translate(0, -50px) scale(0.8);
-      transform: perspective(150px) translateX(0px)  rotateX(180deg) scale(0.8);
+      transform: perspective(150px) translateX(0px) rotateX(180deg) scale(0.8);
     }
     75% {
-      transform: map.get($value,transform) scale(1.55);
+      transform: map.get($value, transform) scale(1.55);
     }
     100% {
       opacity: 1;
