@@ -3,7 +3,7 @@ import data from './data/events.json'
 import { computed, ref } from 'vue'
 import { compare, getDatesArrRecursive, getDatesArr } from '@arrayUtils'
 
-import { DateCard, Ribbon, DataBar, Header } from '@components'
+import { DateCard, Ribbon, DataBar, Header, Title } from '@components'
 import './App.scss'
 const overflow = ref(false)
 
@@ -36,8 +36,7 @@ const getDelay = (i) => {
     <Header />
     <div class="container">
       <div class="container-top">
-        <h2>Top 3</h2>
-        <hr />
+        <Title title="Top 3" :marginBottom="100" class="title" />
         <ul>
           <li v-for="(e, i) in datesData.top3" :key="e.date" :class="[`rank${i + 1}`]">
             <div class="card card-top">
@@ -51,8 +50,7 @@ const getDelay = (i) => {
       </div>
 
       <div class="container-rankings">
-        <h2>Rankings</h2>
-        <hr />
+        <Title title="Rankings" :marginBottom="30" />
         <div class="container-scroll" :class="[overflow ? 'overflow' : '']">
           <ul>
             <li
